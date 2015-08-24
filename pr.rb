@@ -15,7 +15,7 @@ OptionParser.new{|opt|
 }
 
 def issue_number
-  @opts[:i] || branch_name
+  @opts[:i] || branch_name.gsub("#", "")
 end
 
 def base_branch
@@ -41,7 +41,7 @@ end
 
 def update_pull_request_message
   `sed -e "s/issue-no/#{issue_number}/g" .pr_message.txt > .pr_message_temp.txt`
-  `sed -i -e "s/pull-request-message/#{pull_request_title}/g" .pr_message_temp.txt`
+  `sed -i "" "s/pull-request-message/#{pull_request_title}/g" .pr_message_temp.txt`
 end
 
 def delete_tmp_file
