@@ -49,7 +49,7 @@ def delete_tmp_file
 end
 
 def execute_pull_request
-  `hub pull-request --browse -f -F .pr_message_temp.txt -b #{REPOSITORYNAME}:#{base_branch} -h #{repos}:#{head_branch}`
+  `hub pull-request --browse -f -F .pr_message_temp.txt -b #{REPOSITORYNAME}:#{base_branch} -h #{REPOSITORYNAME}:#{head_branch}`
 end
 
 def pr
